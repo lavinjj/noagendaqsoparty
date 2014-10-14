@@ -33,10 +33,16 @@
   <script src="partial/login/login.js"></script>
   <script src="partial/logbook/logbook.js"></script>
   <script src="partial/results/results.js"></script>
+  <script src="partial/header/header.js"></script>
+  <script src="partial/rules/rules.js"></script>
   <!-- Add New Component JS Above -->
 
   <div>
     <div id="content" class="container">
+        <div class="row">
+            <div ng-include src="'partial/header/header.html'">
+            </div>
+        </div>
       <div class="row">
         <div ng-view>
         </div>
