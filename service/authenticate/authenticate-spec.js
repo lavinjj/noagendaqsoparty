@@ -43,7 +43,7 @@ describe('authenticate', function() {
 
     authenticate.googlePlusAuthenticatedHandler(user);
 
-    expect(messaging.publish).toHaveBeenCalledWith(events.message._GET_BREWER_BY_USERNAME_, ['GP:undefined']);
+    expect(messaging.publish).toHaveBeenCalledWith(events.message._GET_CONTESTANT_BY_USERNAME_, ['GP:undefined']);
 
   }));
 
@@ -54,7 +54,7 @@ describe('authenticate', function() {
 
     authenticate.googlePlusAuthenticatedHandler(user);
 
-    expect(messaging.publish).toHaveBeenCalledWith(events.message._GET_BREWER_BY_USERNAME_, ['GP:undefined']);
+    expect(messaging.publish).toHaveBeenCalledWith(events.message._GET_CONTESTANT_BY_USERNAME_, ['GP:undefined']);
 
   }));
 
@@ -65,7 +65,7 @@ describe('authenticate', function() {
 
     authenticate.googlePlusAuthenticatedHandler(user);
 
-    expect(messaging.publish).toHaveBeenCalledWith(events.message._GET_BREWER_BY_USERNAME_, ['GP:undefined']);
+    expect(messaging.publish).toHaveBeenCalledWith(events.message._GET_CONTESTANT_BY_USERNAME_, ['GP:undefined']);
 
   }));
 
@@ -101,7 +101,7 @@ describe('authenticate', function() {
 
     authenticate.login('username', 'password');
 
-    expect(messaging.publish).toHaveBeenCalledWith('_GET_BREWER_BY_USERNAME_', [ 'username' ]);
+    expect(messaging.publish).toHaveBeenCalledWith('_GET_CONTESTANT_BY_USERNAME_', [ 'username' ]);
 
   }));
 

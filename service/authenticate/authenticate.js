@@ -4,7 +4,7 @@ angular.module('noagendaqsoparty').factory('authenticate', function (messaging, 
 
   var login = function (username, password) {
     currentPassword = password;
-    messaging.publish(events.message._GET_BREWER_BY_USERNAME_, [username]);
+    messaging.publish(events.message._GET_CONTESTANT_BY_USERNAME_, [username]);
   };
 
   messaging.subscribe(events.message._AUTHENTICATE_USER_, login);
@@ -23,7 +23,7 @@ angular.module('noagendaqsoparty').factory('authenticate', function (messaging, 
     messaging.publish(events.message._AUTHENTICATE_USER_COMPLETE_, [currentUser]);
   };
 
-  messaging.subscribe(events.message._GET_BREWER_BY_USERNAME_COMPLETE_, onGetContestantByUserNameComplete);
+  messaging.subscribe(events.message._GET_CONTESTANT_BY_USERNAME_COMPLETE_, onGetContestantByUserNameComplete);
 
   var authenticationFailureHandler = function () {
     messaging.publish(events.message._AUTHENTICATE_USER_FAILED_);
@@ -31,7 +31,7 @@ angular.module('noagendaqsoparty').factory('authenticate', function (messaging, 
     messaging.publish(events.message._ADD_ERROR_MESSAGE_, ['Log In Failed.', 'alert-warning']);
   };
 
-  messaging.subscribe(events.message._GET_BREWER_BY_USERNAME_FAILED_, authenticationFailureHandler);
+  messaging.subscribe(events.message._GET_CONTESTANT_BY_USERNAME_FAILED_, authenticationFailureHandler);
 
   var currentUserHandler = function () {
     messaging.publish(events.message._CURRENT_USER_RESPONSE_, [currentUser]);

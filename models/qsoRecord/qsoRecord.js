@@ -1,4 +1,5 @@
 var qsoRecord = function () {
+  var contestant = '';
   var frequency = '';
   var mode = '';
   var date = '';
