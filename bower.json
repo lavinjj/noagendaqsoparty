@@ -22,6 +22,7 @@
     "moment": "~2.5",
     "less.js": "~1.6",
     "font-awesome": "~4.0",
-    "ngFileReader": "~0.0.4"
+    "ngFileReader": "~0.0.4",
+    "log4javascript": "~1.4.9"
   }
 }

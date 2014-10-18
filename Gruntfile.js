@@ -178,7 +178,9 @@ module.exports = function (grunt) {
         files: [  //this files data is also updated in the watch handler, if updated change there too
           '<%= dom_munger.data.appjs %>',
           'bower_components/angular-mocks/angular-mocks.js',
-          createFolderGlobs('*-spec.js')
+          createFolderGlobs('*-spec.js'),
+          'tests/support/test.messaging.js',
+          'tests/support/test.mongolab.js'
         ],
         logLevel:'ERROR',
         reporters:['mocha'],

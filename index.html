@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="noagendaqsoparty">
 <head>
-  <title></title>
+  <title>No Agenda QSO Party</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
   <link href="app.less" type="text/css" rel="stylesheet/less">
@@ -15,6 +15,7 @@
   <script src="bower_components/less.js/dist/less-1.6.2.js" data-concat="false"></script>
   <script src="bower_components/jquery/jquery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/log4javascript/log4javascript.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/angular/angular.js"></script>
@@ -35,10 +36,33 @@
   <script src="partial/results/results.js"></script>
   <script src="partial/header/header.js"></script>
   <script src="partial/rules/rules.js"></script>
+  <script src="models/contestLog/contestLog.js"></script>
+  <script src="models/qsoRecord/qsoRecord.js"></script>
+  <script src="models/contestant/contestant.js"></script>
+  <script src="directive/dialog/dialog.js"></script>
+  <script src="directive/gravatar/gravatar.js"></script>
+  <script src="directive/mustEqual/mustEqual.js"></script>
+  <script src="directive/notificationList/notificationList.js"></script>
+  <script src="directive/uniqueEmail/uniqueEmail.js"></script>
+  <script src="directive/uniqueUserName/uniqueUserName.js"></script>
+  <script src="directive/waitSpinner/waitSpinner.js"></script>
+  <script src="service/authenticate/authenticate.js"></script>
+  <script src="service/dialog/dialog.js"></script>
+  <script src="service/errors/errors.js"></script>
+  <script src="service/events/events.js"></script>
+  <script src="service/logging/logging.js"></script>
+  <script src="service/md5/md5.js"></script>
+  <script src="service/messaging/messaging.js"></script>
+  <script src="service/mongolab/mongolab.js"></script>
+  <script src="service/notification/notification.js"></script>
+  <script src="service/sha/sha.js"></script>
+  <script src="service/utf8encode/utf8encode.js"></script>
   <!-- Add New Component JS Above -->
 
   <div>
     <div id="content" class="container">
+        <dialog></dialog>
+        <wait-spinner></wait-spinner>
         <div class="row">
             <div ng-include src="'partial/header/header.html'">
             </div>
