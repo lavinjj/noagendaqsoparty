@@ -18,7 +18,8 @@
                 <li><a href="#/">Home</a></li>
                 <li><a href="#/rules">Rules</a></li>
                 <li><a href="#/results">Results</a></li>
-                <li><a href="#/logbook">Log Book</a></li>
+                <li ng-hide="contestant"><a href="#/login">Log Book</a></li>
+                <li ng-show="contestant"><a href="#/logbook">Log Book</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
