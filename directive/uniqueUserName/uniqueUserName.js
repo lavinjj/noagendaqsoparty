@@ -1,9 +1,9 @@
-angular.module('noagendaqsoparty').directive('uniqueUserName', function(mongolab) {
+angular.module('noagendaqsoparty').directive('uniqueUserName', function(constants, mongolab) {
 	return {
     restrict: 'A',
     require: 'ngModel',
     link: function (scope, element, attrs, ctrl) {
-      var getBrewerByUserNameSuccessHandler = function (response) {
+      var getContestantByUserNameSuccessHandler = function (response) {
         if(response.data && response.data.length > 0) {
           ctrl.$setValidity('uniqueUserName', false);
         }
@@ -12,15 +12,15 @@ angular.module('noagendaqsoparty').directive('uniqueUserName', function(mongolab
         }
       };
 
-      var getBrewerByUserNameErrorHandler = function () {
+      var getContestantByUserNameErrorHandler = function () {
         ctrl.$setValidity('uniqueUserName', true);
       };
 
       ctrl.$parsers.unshift(function (viewValue) {
         // do nothing unless we match a valid email address
         if ((viewValue !== null) && (viewValue !== undefined) && (viewValue !== '')) {
-          mongolab.query('brew_everywhere', 'brewers', {q: {UserName: viewValue}})
-            .then(getBrewerByUserNameSuccessHandler, getBrewerByUserNameErrorHandler);
+          mongolab.query(constants.db.dbName, constants.db.contestantCollection, {q: {UserName: viewValue}})
+            .then(getContestantByUserNameSuccessHandler, getContestantByUserNameErrorHandler);
         }
 
         return viewValue;

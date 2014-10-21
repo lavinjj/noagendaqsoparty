@@ -1,10 +1,10 @@
-describe('contestant', function() {
+describe('Contestant', function() {
 
   beforeEach(module('noagendaqsoparty'));
 
-  it('should ...', inject(function(contestant) {
+  it('should ...', inject(function(Contestant) {
 
-	//expect(contestant.doSomething()).toEqual('something');
+	//expect(Contestant.doSomething()).toEqual('something');
 
   }));
 

@@ -1,4 +1,4 @@
-var contestant = function () {
+var Contestant = function () {
   var userName = '';
   var firstName = '';
   var lastName = '';
@@ -10,4 +10,4 @@ var contestant = function () {
   var dateJoined = '';
 };
 
-angular.module('noagendaqsoparty').factory('contestant', contestant);
+angular.module('noagendaqsoparty').value('Contestant', Contestant);

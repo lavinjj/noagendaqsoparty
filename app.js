@@ -13,7 +13,8 @@ angular.module('noagendaqsoparty').config(function($routeProvider) {
 
 });
 
-angular.module('noagendaqsoparty').run(function($rootScope) {
+angular.module('noagendaqsoparty')
+  .run(function($rootScope) {
 
     $rootScope.safeApply = function(fn) {
         var phase = $rootScope.$$phase;
@@ -26,4 +27,28 @@ angular.module('noagendaqsoparty').run(function($rootScope) {
         }
     };
 
-});
+})
+  .run(function (logging) {
+    logging.init('main');
+    logging.setLogLevel(log4javascript.Level.ALL);
+    logging.setLogAppender(new log4javascript.BrowserConsoleAppender());
+  })
+  .run(function(mongolab){
+    mongolab.setApiKey('uBNL_OFgaJ77eIEA0ZLFmwFcvuVLVv0o');
+  })
+  .run(function(contestantDataService){
+    contestantDataService.init();
+  })
+  .run(function (dialog) {
+    dialog.init();
+  })
+  .run(function (errors) {
+    errors.init();
+  })
+  .run(function (notification) {
+    notification.init();
+  })
+  .run(function (authenticate) {
+    authenticate.init();
+  });
+

@@ -1,4 +1,20 @@
 <div class="col-md-12" ng-controller="LoginCtrl">
-
-
+    <div class="container">
+        <div class="login-container">
+            <div id="output">
+                <div class="alert-danger" ng-show="loginForm.username.$invalid && loginForm.$dirty">You must enter a username
+                </div>
+                <div class="alert-danger" ng-show="loginForm.password.$invalid && loginForm.$dirty">You must enter a password
+                </div>
+            </div>
+            <div class="form-box">
+                <ng-form name="loginForm">
+                    <input name="username" type="text" placeholder="call sign" ng-model="username" required>
+                    <input name="password" type="password" placeholder="password" ng-model="password" required>
+                    <button class="btn btn-info btn-block login" ng-click="login()" ng-disabled="loginForm.$invalid">Login</button>
+                    <a href="#/register" class="btn btn-info btn-block login" >Register</a>
+                </ng-form>
+            </div>
+        </div>
+    </div>
 </div>

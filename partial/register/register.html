@@ -1,10 +1,10 @@
 <div class="col-md-12" ng-controller="RegisterCtrl">
-    <form name="registerForm" class="form-horizontal">
+    <ng-form name="registerForm" class="form-horizontal">
         <fieldset>
             <legend>Register</legend>
             <div class="form-group">
                 <label class="label label-default" for="UserName">User Name </label>
-                <input class="form-control" id="UserName" name="UserName" type="text" ng-model="brewer.UserName"
+                <input class="form-control" id="UserName" name="UserName" type="text" ng-model="contestant.UserName"
                        unique-user-name required>
             </div>
             <div ng-show="registerForm.UserName.$error.required && registerForm.UserName.$dirty">
@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <label class="label label-default" for="FirstName">First Name </label>
-                <input class="form-control" id="FirstName" name="FirstName" type="text" ng-model="brewer.FirstName"
+                <input class="form-control" id="FirstName" name="FirstName" type="text" ng-model="contestant.FirstName"
                        required>
             </div>
             <div ng-show="registerForm.FirstName.$error.required && registerForm.FirstName.$dirty">
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label class="label label-default" for="LastName">Last Name </label>
-                <input class="form-control" id="LastName" name="LastName" type="text" ng-model="brewer.LastName"
+                <input class="form-control" id="LastName" name="LastName" type="text" ng-model="contestant.LastName"
                        required>
             </div>
             <div ng-show="registerForm.LastName.$error.required && registerForm.LastName.$dirty">
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label class="label label-default" for="Email">Email </label>
-                <input class="form-control" id="Email" name="Email" type="email" ng-model="brewer.Email" unique-email
+                <input class="form-control" id="Email" name="Email" type="email" ng-model="contestant.Email" unique-email
                        required>
             </div>
             <div ng-show="registerForm.Email.$error.required && registerForm.Email.$dirty">
@@ -42,15 +42,15 @@
             </div>
             <div class="form-group">
                 <label class="label label-default" for="Location">Location </label>
-                <input class="form-control" id="Location" name="Location" type="text" ng-model="brewer.Location">
+                <input class="form-control" id="Location" name="Location" type="text" ng-model="contestant.Location">
             </div>
             <div class="form-group">
                 <label class="label label-default" for="Bio">Bio </label>
-                <textarea id="Bio" name="Bio" ng-model="brewer.Bio" class="form-control"></textarea>
+                <textarea id="Bio" name="Bio" ng-model="contestant.Bio" class="form-control"></textarea>
             </div>
             <div class="form-group">
                 <label class="label label-default" for="WebSite">Web Site </label>
-                <input class="form-control" id="WebSite" name="WebSite" type="text" ng-model="brewer.WebSite">
+                <input class="form-control" id="WebSite" name="WebSite" type="text" ng-model="contestant.WebSite">
             </div>
             <div class="form-group">
                 <label class="label label-default" for="Password">Password </label>
@@ -78,5 +78,5 @@
                 <a href="#/" name="cancelBtn" class="btn btn-large btn-danger">Cancel</a>
             </div>
         </fieldset>
-    </form>
+    </ng-form>
 </div>

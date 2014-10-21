@@ -1,10 +1,10 @@
-describe('qsoRecord', function() {
+describe('QsoRecord', function() {
 
   beforeEach(module('noagendaqsoparty'));
 
-  it('should ...', inject(function(qsoRecord) {
+  it('should ...', inject(function(QsoRecord) {
 
-	//expect(qsoRecord.doSomething()).toEqual('something');
+	//expect(QsoRecord.doSomething()).toEqual('something');
 
   }));
 

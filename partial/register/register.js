@@ -1,9 +1,9 @@
-angular.module('noagendaqsoparty').controller('RegisterCtrl',function($scope, $controller, $location, events, sha, contestant){
+angular.module('noagendaqsoparty').controller('RegisterCtrl',function($scope, $controller, $location, events, sha, Contestant){
   // this call to $controller adds the base controller's methods
   // and properties to the controller's scope
   $controller('BaseCtrl', {$scope: $scope});
 
-  $scope.contestant = new contestant();
+  $scope.contestant = new Contestant();
   $scope.password = "";
   $scope.confirmpassword = "";
 

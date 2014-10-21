@@ -1,4 +1,4 @@
-var contestLog = function(){
+var ContestLog = function(){
   var callsign = '';
   var assistedStatus = '';
   var categoryBand = '';
@@ -23,4 +23,4 @@ var contestLog = function(){
 };
 
 
-angular.module('noagendaqsoparty').value('contestLog', contestLog);
+angular.module('noagendaqsoparty').value('ContestLog', ContestLog);

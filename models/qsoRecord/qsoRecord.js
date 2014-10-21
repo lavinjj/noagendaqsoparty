@@ -1,4 +1,4 @@
-var qsoRecord = function () {
+var QsoRecord = function () {
   var contestant = '';
   var frequency = '';
   var mode = '';
@@ -12,4 +12,4 @@ var qsoRecord = function () {
   var exchRcvd = '';
 };
 
-angular.module('noagendaqsoparty').factory('qsoRecord', qsoRecord);
+angular.module('noagendaqsoparty').value('QsoRecord', QsoRecord);
