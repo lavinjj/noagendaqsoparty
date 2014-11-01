@@ -27,7 +27,7 @@ angular.module('noagendaqsoparty').controller('LoginCtrl',function($scope, $cont
   //#region click handlers
   $scope.login = function() {
     $scope.traceInfo("authenticateUserCompletedHandler authenticating user: " + $scope.username);
-    $scope.publish(events.message._AUTHENTICATE_USER_, [$scope.username, $scope.password]);
+    $scope.publish(events.message._AUTHENTICATE_USER_, [$scope.username.toUpperCase(), $scope.password]);
   };
   //#endregion
 

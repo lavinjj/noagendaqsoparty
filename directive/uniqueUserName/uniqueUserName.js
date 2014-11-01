@@ -19,7 +19,7 @@ angular.module('noagendaqsoparty').directive('uniqueUserName', function(constant
       ctrl.$parsers.unshift(function (viewValue) {
         // do nothing unless we match a valid email address
         if ((viewValue !== null) && (viewValue !== undefined) && (viewValue !== '')) {
-          mongolab.query(constants.db.dbName, constants.db.contestantCollection, {q: {UserName: viewValue}})
+          mongolab.query(constants.db.dbName, constants.db.contestantCollection, {q: {UserName: viewValue.toUpperCase()}})
             .then(getContestantByUserNameSuccessHandler, getContestantByUserNameErrorHandler);
         }
 
