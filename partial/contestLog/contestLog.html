@@ -1,4 +1,150 @@
 <div class="col-md-12" ng-controller="ContestlogCtrl">
+    <form class="form-horizontal">
+        <formset>
+            <legend>Contest Log</legend>
+            <div class="control-group">
+                <label class="control-label" for="inputCallSign">CallSign</label>
 
+                <div class="controls">
+                    <input type="text" class="input-medium" id="inputCallSign" placeholder="CallSign"
+                           ng-model="contestLog.callsign" ng-required ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputName">Name</label>
 
+                <div class="controls">
+                    <input type="text" class="input-medium" id="inputName" placeholder="Name" ng-model="contestLog.name"
+                           ng-required ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Email</label>
+
+                <div class="controls">
+                    <input type="text" class="input-medium" id="inputEmail" placeholder="Email"
+                           ng-model="contestLog.emailAddress" ng-required ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputAddress">Address</label>
+
+                <div class="controls">
+                    <input type="text" class="input-medium" id="inputAddress" placeholder="Address"
+                           ng-model="contestLog.address" ng-required ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCity">City</label>
+
+                <div class="controls">
+                    <input type="text" class="input-medium" id="inputCity" placeholder="City" ng-model="contestLog.city"
+                           ng-required ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputStateProvince">State/Province</label>
+
+                <div class="controls">
+                    <input type="text" class="input-medium" id="inputStateProvince" placeholder="State/Province"
+                           ng-model="contestLog.stateProvince" ng-required ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPostalCode">Postal Code</label>
+
+                <div class="controls">
+                    <input type="text" class="input-medium" id="inputPostalCode" placeholder="Postal Code"
+                           ng-model="contestLog.postalCode" ng-required ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCountry">Country</label>
+
+                <div class="controls">
+                    <input type="text" class="input-medium" id="inputCountry" placeholder="Country"
+                           ng-model="contestLog.country" ng-required ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputLocation">Location</label>
+
+                <div class="controls">
+                    <input type="text" class="input-medium" id="inputLocation" placeholder="Club Name"
+                           ng-model="contestLog.location" ng-required ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputClubName">Club Name</label>
+
+                <div class="controls">
+                    <input type="text" class="input-medium" id="inputClubName" placeholder="Club Name"
+                           ng-model="contestLog.club" ng-required ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCategoryAssisted">Assisted</label>
+
+                <div class="controls">
+                    <select id="inputCategoryAssisted" ng-model="contestLog.assistedStatus"
+                            ng-options="currOption for currOption in categoryAssisted" ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCategoryBand">Band</label>
+
+                <div class="controls">
+                    <select id="inputCategoryBand" ng-model="contestLog.categoryBand"
+                            ng-options="currOption for currOption in categoryBand" ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCategoryMode">Mode</label>
+
+                <div class="controls">
+                    <select id="inputCategoryMode" ng-model="contestLog.categoryMode"
+                            ng-options="currOption for currOption in categoryMode" ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCategoryOperator">Operator</label>
+
+                <div class="controls">
+                    <select id="inputCategoryOperator" ng-model="contestLog.categoryOperator"
+                            ng-options="currOption for currOption in categoryOperator" ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCategoryStation">Station Type</label>
+
+                <div class="controls">
+                    <select id="inputCategoryStation" ng-model="contestLog.categoryStation"
+                            ng-options="currOption for currOption in categoryStation" ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCategoryTransmitter">Transmitter</label>
+
+                <div class="controls">
+                    <select id="inputCategoryTransmitter" ng-model="contestLog.categoryTransmitter"
+                            ng-options="currOption for currOption in categoryTransmitter" ng-change="updateLog()"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCategoryPower">Power</label>
+
+                <div class="controls">
+                    <select id="inputCategoryPower" ng-model="contestLog.categoryPower"
+                            ng-options="currOption for currOption in categoryPower" ng-change="updateLog()"/>
+                </div>
+            </div>
+        </formset>
+    </form>
+    <div>
+        <button id="addQso" class="btn btn-primary" ng-click="addContact()">Add QSO</button>
+    </div>
+    <div ng-repeat="qso in contestLog.qsoData">
+        <div ng-include src="'partial/qsoRecord/qsoRecord.html'">
+        </div>
+    </div>
 </div>

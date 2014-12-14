@@ -1,4 +1,72 @@
 <div class="col-md-12" ng-controller="QsorecordCtrl">
+    <form class="form-horizontal">
+        <formset>
+            <legend>{{qso.index}} - {{qso.date}} {{qso.time}}</legend>
+            <div class="control-group">
+                <label class="control-label" for="inputFrequency">Frequency</label>
 
+                <div class="controls">
+                    <input type="number" class="input-small" id="inputFrequency" placeholder="Frequency"
+                           ng-model="qso.frequency" ng-required/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCategoryMode">Mode</label>
 
+                <div class="controls">
+                    <select id="inputCategoryMode" ng-model="qso.mode"
+                            ng-options="currOption for currOption in categoryMode"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputCallSent">Call Sent</label>
+
+                <div class="controls">
+                    <input type="text" class="input-small" id="inputCallSent" placeholder="Call Sent" ng-model="qso.callSent"
+                           ng-required/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputRSTSent">RST Sent</label>
+
+                <div class="controls">
+                    <input type="text" class="input-small" id="inputRSTSent" placeholder="RST Sent"
+                           ng-model="qso.rstSent" ng-required/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputExchSent">Exch Sent</label>
+
+                <div class="controls">
+                    <input type="text" class="input-small" id="inputExchSent" placeholder="Exch Sent"
+                           ng-model="qso.exchSent" ng-required/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputCallRcvd">Call Rcvd</label>
+
+                <div class="controls">
+                    <input type="text" class="input-small" id="inputCallRcvd" placeholder="Call Rcvd" ng-model="qso.callRcvd"
+                           ng-required/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputRSTRcvd">RST Rcvd</label>
+
+                <div class="controls">
+                    <input type="text" class="input-small" id="inputRSTRcvd" placeholder="RST Rcvd"
+                           ng-model="qso.rstRcvd" ng-required/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputExchRcvdt">Exch Rcvd</label>
+
+                <div class="controls">
+                    <input type="text" class="input-small" id="inputExchRcvd" placeholder="Exch Rcvd"
+                           ng-model="qso.exchRcvd" ng-required/>
+                </div>
+            </div>
+        </formset>
+    </form>
 </div>

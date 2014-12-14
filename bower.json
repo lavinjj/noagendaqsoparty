@@ -23,6 +23,8 @@
     "less.js": "~1.6",
     "font-awesome": "~4.0",
     "ngFileReader": "~0.0.4",
-    "log4javascript": "~1.4.9"
+    "log4javascript": "~1.4.9",
+    "angular-local-storage": "~0.1.5",
+    "angulartics": "~0.17.1"
   }
 }
