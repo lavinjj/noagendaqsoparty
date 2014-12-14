@@ -22,6 +22,11 @@ angular.module('noagendaqsoparty').controller('ContestlogCtrl', function ($scope
         contact.time = moment.utc().format('hh:mm:ss');
         if ($scope.contestLog.qsoData.length) {
             contact.index = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].index + 1;
+            contact.frequency = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].frequency;
+            contact.mode = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].mode;
+            contact.callSent = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].callSent;
+            contact.rstSent = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].rstSent;
+            contact.exchSent = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].exchSent;
         }
         else {
             contact.index = 1;

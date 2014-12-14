@@ -1,5 +1,5 @@
 <div class="col-md-12" ng-controller="ContestlogCtrl">
-    <form class="form-horizontal">
+    <form class="col-md-12 form-horizontal">
         <formset>
             <legend>Contest Log</legend>
             <div class="control-group">
@@ -143,8 +143,43 @@
     <div>
         <button id="addQso" class="btn btn-primary" ng-click="addContact()">Add QSO</button>
     </div>
-    <div ng-repeat="qso in contestLog.qsoData">
-        <div ng-include src="'partial/qsoRecord/qsoRecord.html'">
-        </div>
-    </div>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>freq</th>
+                <th>mode</th>
+                <th>call sent</th>
+                <th>rst sent</th>
+                <th>exch sent</th>
+                <th>call rcvd</th>
+                <th>rst rcvd</th>
+                <th>exch rcvd</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="qso in contestLog.qsoData">
+                <td>{{qso.index}} - {{qso.date}} {{qso.time}}</td>
+                <td><input type="number" class="input-small" id="inputFrequency" placeholder="Frequency"
+                           ng-model="qso.frequency" ng-required/></td>
+                <td><select id="inputCategoryMode" ng-model="qso.mode"
+                            ng-options="currOption for currOption in categoryMode"/></td>
+                <td><input type="text" class="input-small" id="inputCallSent" placeholder="Call Sent" ng-model="qso.callSent"
+                           ng-required/></td>
+                <td><input type="text" class="input-small" id="inputRSTSent" placeholder="RST Sent"
+                           ng-model="qso.rstSent" ng-required/></td>
+                <td><input type="text" class="input-small" id="inputExchSent" placeholder="Exch Sent"
+                           ng-model="qso.exchSent" ng-required/></td>
+                <td><input type="text" class="input-small" id="inputCallRcvd" placeholder="Call Rcvd" ng-model="qso.callRcvd"
+                           ng-required/></td>
+                <td><input type="text" class="input-small" id="inputRSTRcvd" placeholder="RST Rcvd"
+                           ng-model="qso.rstRcvd" ng-required/></td>
+                <td><input type="text" class="input-small" id="inputExchRcvd" placeholder="Exch Rcvd"
+                           ng-model="qso.exchRcvd" ng-required/></td>
+                <td><a class="btn btn-primary" ng-click="updateLog()"><i class="icon icon-save"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+
 </div>
