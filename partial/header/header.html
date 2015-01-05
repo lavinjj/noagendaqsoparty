@@ -21,9 +21,49 @@
                 <li ng-hide="contestant"><a href="#/login">Log Book</a></li>
                 <li ng-show="contestant"><a href="#/logbook">Log Book</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right" ng-show="contestant">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user"></i> 
+                        <strong>{{contestant.UserName}}</strong>
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="navbar-login">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p class="text-center">
+                                            <i class="fa fa-user icon-size"></i>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p class="text-left"><strong>{{contestant.FirstName}} {{contestant.LastName}}</strong></p>
+                                        <p class="text-left small">{{contestant.Email}}</p>
+                                        <p class="text-left">
+                                            <a class="btn btn-primary btn-block btn-sm" ng-click="logoutUser()">Not {{contestant.UserName}}?</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="navbar-login navbar-login-session">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p>
+                                            <a ng-click="logoutUser()" class="btn btn-danger btn-block">Log Out</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
         <!-- /.navbar-collapse -->
-        <span class="pull-right" ng-show="contestant">{{contestant.UserName}}</span>
 
     </div>
     <!-- /.container-fluid -->

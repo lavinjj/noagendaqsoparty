@@ -1,51 +1,64 @@
-angular.module('noagendaqsoparty').factory('authenticate', function (messaging, events, sha) {
-  var currentUser = {};
-  var currentPassword = '';
+angular.module('noagendaqsoparty').factory('authenticate', function (localStorageService, constants, messaging, events, sha) {
+    var currentUser = null;
+    var currentPassword = '';
 
-  var login = function (username, password) {
-    currentPassword = password;
-    messaging.publish(events.message._GET_CONTESTANT_BY_USERNAME_, [username]);
-  };
+    var login = function (username, password) {
+        currentPassword = password;
+        messaging.publish(events.message._GET_CONTESTANT_BY_USERNAME_, [username]);
+    };
 
-  messaging.subscribe(events.message._AUTHENTICATE_USER_, login);
+    messaging.subscribe(events.message._AUTHENTICATE_USER_, login);
 
-  var onGetContestantByUserNameComplete = function (contestants) {
-    var contestant = contestants[0];
-    var passwordHash = sha.hash(currentPassword + Date.parse(contestant.DateJoined).valueOf().toString());
+    var logout = function(){
+        localStorageService.remove(constants.localStorage.currentUser);
+        currentUser = null;
+        messaging.publish(events.message._CURRENT_USER_RESPONSE_, [currentUser]);
+        messaging.publish(events.message._LOGOUT_USER_COMPLETE_, [currentUser]);
+    };
 
-    if (passwordHash !== contestant.Password) {
-      messaging.publish(events.message._ADD_ERROR_MESSAGE_, ['Invalid password', 'alert.warning']);
-      return;
-    }
+    messaging.subscribe(events.message._LOGOUT_USER_, logout);
 
-    currentUser = contestant;
+    var onGetContestantByUserNameComplete = function (contestants) {
+        var contestant = contestants[0];
+        var passwordHash = sha.hash(currentPassword + Date.parse(contestant.DateJoined).valueOf().toString());
 
-    messaging.publish(events.message._AUTHENTICATE_USER_COMPLETE_, [currentUser]);
-  };
+        if (passwordHash !== contestant.Password) {
+            messaging.publish(events.message._ADD_ERROR_MESSAGE_, ['Invalid password', 'alert.warning']);
+            return;
+        }
 
-  messaging.subscribe(events.message._GET_CONTESTANT_BY_USERNAME_COMPLETE_, onGetContestantByUserNameComplete);
+        currentUser = contestant;
+        localStorageService.set(constants.localStorage.currentUser, currentUser);
 
-  var authenticationFailureHandler = function () {
-    messaging.publish(events.message._AUTHENTICATE_USER_FAILED_);
-    messaging.publish(events.message._SERVER_REQUEST_ENDED_);
-    messaging.publish(events.message._ADD_ERROR_MESSAGE_, ['Log In Failed.', 'alert-warning']);
-  };
+        messaging.publish(events.message._AUTHENTICATE_USER_COMPLETE_, [currentUser]);
+    };
 
-  messaging.subscribe(events.message._GET_CONTESTANT_BY_USERNAME_FAILED_, authenticationFailureHandler);
+    messaging.subscribe(events.message._GET_CONTESTANT_BY_USERNAME_COMPLETE_, onGetContestantByUserNameComplete);
 
-  var currentUserHandler = function () {
-    messaging.publish(events.message._CURRENT_USER_RESPONSE_, [currentUser]);
-  };
+    var authenticationFailureHandler = function () {
+        messaging.publish(events.message._AUTHENTICATE_USER_FAILED_);
+        messaging.publish(events.message._SERVER_REQUEST_ENDED_);
+        messaging.publish(events.message._ADD_ERROR_MESSAGE_, ['Log In Failed.', 'alert-warning']);
+    };
 
-  messaging.subscribe(events.message._REQUEST_CURRENT_USER_, currentUserHandler);
+    messaging.subscribe(events.message._GET_CONTESTANT_BY_USERNAME_FAILED_, authenticationFailureHandler);
 
-  var init = function () {
-    currentUser = {};
-  };
+    var currentUserHandler = function () {
+        if(!currentUser){
+            currentUser = localStorageService.get(constants.localStorage.currentUser);
+        }
+        messaging.publish(events.message._CURRENT_USER_RESPONSE_, [currentUser]);
+    };
 
-  var authenticate = {
-    init: init
-  };
+    messaging.subscribe(events.message._REQUEST_CURRENT_USER_, currentUserHandler);
 
-  return authenticate;
+    var init = function () {
+        currentUser = null;
+    };
+
+    var authenticate = {
+        init: init
+    };
+
+    return authenticate;
 });

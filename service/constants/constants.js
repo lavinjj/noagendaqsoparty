@@ -6,6 +6,10 @@ angular.module('noagendaqsoparty').constant('constants', {
     qsoRecordsCollection: 'qsoRecords'
   },
     localStorage: {
-        currentContestLog: 'CURRENT_CONTEST_LOG'
+        currentContestLog: 'CURRENT_CONTEST_LOG',
+        currentUser: 'CURRENT_USER'
+    },
+    siteUris: {
+        home: '/'
     }
 });

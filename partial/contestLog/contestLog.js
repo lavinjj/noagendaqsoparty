@@ -1,4 +1,7 @@
-angular.module('noagendaqsoparty').controller('ContestlogCtrl', function ($scope, localStorageService, constants, ContestLog, QsoRecord) {
+angular.module('noagendaqsoparty').controller('ContestlogCtrl', function ($scope, $controller, localStorageService, constants, events, ContestLog, QsoRecord) {
+    // this call to $controller adds the base controller's methods
+    // and properties to the controller's scope
+    $controller('BaseCtrl', {$scope: $scope});
 
     $scope.categoryAssisted = ['ASSISTED', 'NON-ASSISTED'];
     $scope.categoryBand = ['ALL', '160M', '80M', '40M', '20M', '15M', '10M', '6M', '2M',
@@ -12,7 +15,13 @@ angular.module('noagendaqsoparty').controller('ContestlogCtrl', function ($scope
     $scope.categoryTime = ['6-HOURS', '12-HOURS', '24-HOURS'];
     $scope.categoryTransmitter = ['ONE', 'TWO', 'LIMITED', 'UNLIMITED', 'SWL'];
     $scope.categoryOverlay = ['CLASSIC', 'ROOKIE', 'TB-WIRES', 'NOVICE-TECH', 'OVER-50'];
+    $scope.contestant = null;
     $scope.contestLog = new ContestLog();
+    $scope.displayDetails = false;
+
+    $scope.toggleDetails = function(){
+        $scope.displayDetails = !$scope.displayDetails;
+    };
 
     $scope.addContact = function () {
         var contact = new QsoRecord();
@@ -25,6 +34,8 @@ angular.module('noagendaqsoparty').controller('ContestlogCtrl', function ($scope
             contact.frequency = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].frequency;
             contact.mode = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].mode;
             contact.callSent = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].callSent;
+            contact.countrySent = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].countrySent;
+            contact.provinceSent = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].provinceSent;
             contact.rstSent = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].rstSent;
             contact.exchSent = $scope.contestLog.qsoData[$scope.contestLog.qsoData.length - 1].exchSent;
         }
@@ -41,6 +52,18 @@ angular.module('noagendaqsoparty').controller('ContestlogCtrl', function ($scope
         }
     };
 
+    $scope.retrieveUserCompletedHandler = function (user) {
+        $scope.traceInfo("retrieveUserCompletedHandler received: " + angular.toJson(user));
+        if (user) {
+            $scope.contestant = user;
+            $scope.contestLog.contestant = $scope.contestant._id.$oid;
+            $scope.contestLog.callsign = $scope.contestant.UserName;
+            $scope.contestLog.name = $scope.contestant.FirstName + ' ' + $scope.contestant.LastName;
+            $scope.contestLog.emailAddress = $scope.contestant.Email;
+        }
+    };
+    $scope.subscribe(events.message._CURRENT_USER_RESPONSE_, $scope.retrieveUserCompletedHandler);
+
     $scope.init = function () {
         var contestLog = localStorageService.get(constants.localStorage.currentContestLog);
         if(!contestLog){
@@ -50,6 +73,7 @@ angular.module('noagendaqsoparty').controller('ContestlogCtrl', function ($scope
         } else {
             $scope.contestLog = contestLog;
         }
+        $scope.publish(events.message._REQUEST_CURRENT_USER_);
     };
 
     $scope.init();
