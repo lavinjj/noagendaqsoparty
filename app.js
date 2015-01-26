@@ -1,16 +1,17 @@
 angular.module('noagendaqsoparty', ['ui.bootstrap', 'ui.utils', 'ngRoute', 'ngAnimate', 'LocalStorageModule', 'angulartics', 'angulartics.google.analytics']);
 
-angular.module('noagendaqsoparty').config(function ($routeProvider) {
+angular.module('noagendaqsoparty').config(function ($routeProvider, constants) {
 
-    $routeProvider.when('/', {templateUrl: 'partial/home/home.html'});
-    $routeProvider.when('/register', {templateUrl: 'partial/register/register.html'});
-    $routeProvider.when('/login', {templateUrl: 'partial/login/login.html'});
-    $routeProvider.when('/logbook', {templateUrl: 'partial/logbook/logbook.html'});
-    $routeProvider.when('/contestlog', {templateUrl: 'partial/contestLog/contestLog.html'});
-    $routeProvider.when('/results', {templateUrl: 'partial/results/results.html'});
-    $routeProvider.when('/rules', {templateUrl: 'partial/rules/rules.html'});
+    $routeProvider.when(constants.siteUris.home, {templateUrl: constants.partials.home});
+    $routeProvider.when(constants.siteUris.register, {templateUrl: constants.partials.register});
+    $routeProvider.when(constants.siteUris.login, {templateUrl: constants.partials.login});
+    $routeProvider.when(constants.siteUris.logbook, {templateUrl: constants.partials.logbook});
+    $routeProvider.when(constants.siteUris.contestlog, {templateUrl: constants.partials.contestlog});
+    $routeProvider.when(constants.siteUris.contestlog + '/:id', {templateUrl: constants.partials.contestlog});
+    $routeProvider.when(constants.siteUris.results, {templateUrl: constants.partials.results});
+    $routeProvider.when(constants.siteUris.rules, {templateUrl: constants.partials.rules});
     /* Add New Routes Above */
-    $routeProvider.otherwise({redirectTo: '/'});
+    $routeProvider.otherwise({redirectTo: constants.siteUris.home});
 
 })
     .config(function (localStorageServiceProvider) {
@@ -53,5 +54,11 @@ angular.module('noagendaqsoparty').config(function ($routeProvider) {
     })
     .run(function (authenticate) {
         authenticate.init();
+    })
+    .run(function (contestLogDataService){
+        contestLogDataService.init();
+    })
+    .run(function (qsoRecordDataService){
+        qsoRecordDataService.init();
     });
 

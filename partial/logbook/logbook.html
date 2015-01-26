@@ -1,4 +1,31 @@
 <div class="col-md-12" ng-controller="LogbookCtrl">
-
-
+    <h2>Contest Logs for {{contestant.UserName}}</h2>
+    <div>&nbsp;</div>
+    <div><p>You can record your contest logs in two different ways. You can either upload your log using the Cabrillo format or enter it manually. If you have issues using either format, please email the organizer <a href="mailto:jlavin@jimlavin.net">KF5SVR</a> with the subject #NOAGENDAQSOPARTY CONTEST LOG.</p></div>
+    <div>&nbsp;</div>
+    <div ng-hide="contestLogs.length">You have no contest logs.</div>
+    <table class="table-condensed" ng-show="contestLogs.length">
+        <thead>
+        <tr>
+            <th>Submit Time</th>
+            <th>Band</th>
+            <th>Mode</th>
+            <th>Score</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="contestLog in contestLogs">
+            <td>{{contestLog.submitTime}}</td>
+            <td>{{contestLog.categoryBand}}</td>
+            <td>{{contestLog.categoryMode}}</td>
+            <td>{{contestLog.claimedScore}}</td>
+            <td><a class="btn btn-primary" ng-click="editLog(contestLog.id)"><i class="fa fa-pencil"></i></a></td>
+            <td><a class="btn btn-primary" ng-click="deleteLog($index)"><i class="fa fa-trash-o"></i></a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div>&nbsp;</div>
+    <div class="pull-right"><a class="btn btn-primary" ng-click="createLog()"><i class="fa fa-file-text-o"></i></a> - Add New <a class="btn btn-primary" ng-click="uploadLog()"><i class="fa fa-file-text-o"></i></a> - Upload New</div>
 </div>

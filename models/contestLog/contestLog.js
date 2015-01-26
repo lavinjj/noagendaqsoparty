@@ -1,6 +1,7 @@
 var ContestLog = function () {
     var contestant = '';
     var callsign = '';
+    var submitTime = '';
     var assistedStatus = '';
     var categoryBand = '';
     var categoryMode = '';
@@ -21,7 +22,6 @@ var ContestLog = function () {
     var location = '';
     var operators = [];
     var soapbox = '';
-    var qsoData = [];
 };
 
 
