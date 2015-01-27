@@ -59,7 +59,7 @@ angular.module('noagendaqsoparty').controller('LogbookCtrl', function ($scope, $
     };
 
     $scope.uploadLog = function(){
-        window.alert('Not functional at this time.');
+        $location.path(constants.siteUris.upload);
     };
     //#endregion
 

@@ -1,4 +1,4 @@
-angular.module('noagendaqsoparty', ['ui.bootstrap', 'ui.utils', 'ngRoute', 'ngAnimate', 'LocalStorageModule', 'angulartics', 'angulartics.google.analytics']);
+angular.module('noagendaqsoparty', ['ui.bootstrap', 'ui.utils', 'ngRoute', 'ngAnimate', 'ngSanitize', 'LocalStorageModule', 'angulartics', 'angulartics.google.analytics', 'ngFileReader']);
 
 angular.module('noagendaqsoparty').config(function ($routeProvider, constants) {
 
@@ -10,6 +10,7 @@ angular.module('noagendaqsoparty').config(function ($routeProvider, constants) {
     $routeProvider.when(constants.siteUris.contestlog + '/:id', {templateUrl: constants.partials.contestlog});
     $routeProvider.when(constants.siteUris.results, {templateUrl: constants.partials.results});
     $routeProvider.when(constants.siteUris.rules, {templateUrl: constants.partials.rules});
+    $routeProvider.when(constants.siteUris.upload,{templateUrl: constants.partials.upload});
     /* Add New Routes Above */
     $routeProvider.otherwise({redirectTo: constants.siteUris.home});
 

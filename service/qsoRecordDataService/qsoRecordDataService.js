@@ -1,7 +1,7 @@
 angular.module('noagendaqsoparty').factory('qsoRecordDataService', function (messaging, events, constants, mongolab, modelTransformer, QsoRecord) {
 
     var getQsoRecordsByCallSign = function (callSign) {
-        return mongolab.query(constants.db.dbName, constants.db.qsoRecordsCollection, {q: {callsign: callSign}})
+        return mongolab.query(constants.db.dbName, constants.db.qsoRecordsCollection, {q: {callsign: callSign}, $orderby: { index : 1 }})
             .then(getQsoRecordsByCallSignSuccessHandler, getQsoRecordsByCallSignErrorHandler);
     };
 
@@ -24,7 +24,7 @@ angular.module('noagendaqsoparty').factory('qsoRecordDataService', function (mes
     messaging.subscribe(events.message._GET_QSO_RECORDS_BY_CALL_SIGN_, getQsoRecordsByCallSign);
 
     var getQsoRecordsByContestantId = function (id) {
-        return mongolab.query(constants.db.dbName, constants.db.qsoRecordsCollection, {q: {contestant: id}})
+        return mongolab.query(constants.db.dbName, constants.db.qsoRecordsCollection, {q: {contestant: id}, $orderby: { index : 1 }})
             .then(getQsoRecordsByContestantIdSuccessHandler, getQsoRecordsByContestantIdErrorHandler);
     };
 
@@ -47,7 +47,7 @@ angular.module('noagendaqsoparty').factory('qsoRecordDataService', function (mes
     messaging.subscribe(events.message._GET_QSO_RECORDS_BY_CONTESTANT_ID_, getQsoRecordsByContestantId);
 
     var getQsoRecordsByContestLogId = function (id) {
-        return mongolab.query(constants.db.dbName, constants.db.qsoRecordsCollection, {q: {contestLog: id}})
+        return mongolab.query(constants.db.dbName, constants.db.qsoRecordsCollection, {q: {contestLog: id}, $orderby: { index : 1 }})
             .then(getQsoRecordsByContestLogIdSuccessHandler, getQsoRecordsByContestLogIdErrorHandler);
     };
 

@@ -17,7 +17,8 @@ angular.module('noagendaqsoparty').constant('constants', {
         logbook: '/logbook',
         contestlog: '/contestlog',
         results: '/results',
-        rules: '/rules'
+        rules: '/rules',
+        upload: '/upload'
     },
     partials: {
         home: 'partial/home/home.html',
@@ -26,6 +27,7 @@ angular.module('noagendaqsoparty').constant('constants', {
         logbook: 'partial/logbook/logbook.html',
         contestlog: 'partial/contestLog/contestLog.html',
         results: 'partial/results/results.html',
-        rules: 'partial/rules/rules.html'
+        rules: 'partial/rules/rules.html',
+        upload: 'partial/uploadLogFile/uploadLogFile.html'
     }
 });

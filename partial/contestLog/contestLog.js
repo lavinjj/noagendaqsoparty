@@ -7,7 +7,7 @@ angular.module('noagendaqsoparty').controller('ContestlogCtrl', function ($scope
     $scope.categoryBand = ['ALL', '160M', '80M', '40M', '20M', '15M', '10M', '6M', '2M',
         '222', '432', '902', '1.2G', '2.3G', '3.4G', '5.7G', '10G', '24G', '47G', '75G',
         '119G', '142G', '241G', 'Light'];
-    $scope.categoryMode = ['SSB', 'CW', 'RTTY', 'MIXED', 'D-Star', 'EchoLink'];
+    $scope.categoryMode = ['PH', 'SSB', 'CW', 'RTTY', 'MIXED', 'D-Star', 'EchoLink'];
     $scope.categoryOperator = ['SINGLE-OP', 'MULTI-OP', 'CHECKLOG'];
     $scope.categoryPower = ['HIGH', 'LOW', 'QRP'];
     $scope.categoryStation = ['FIXED', 'MOBILE', 'PORTABLE', 'ROVER',

@@ -1,218 +1,227 @@
 <div class="col-md-12" ng-controller="ContestlogCtrl">
     <h3>Contest Log</h3>
-    <ul class="nav navbar-default">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <h4>Log Details <i ng-click="toggleDetails()" ng-show="displayDetails" class="fa fa-chevron-down"></i><i
-                    ng-click="toggleDetails()" ng-show="!displayDetails" class="fa fa-chevron-up"></i></h4>
-            </a>
 
-            <div class="row" collapse="displayDetails">
-                <form class="form-horizontal">
-                    <formset>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputCallSign">CallSign</label>
+    <div class="row">
+        <ul class="nav navbar-default">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <h4>Log Details <i ng-click="toggleDetails()" ng-show="displayDetails"
+                                       class="fa fa-chevron-down"></i><i
+                        ng-click="toggleDetails()" ng-show="!displayDetails" class="fa fa-chevron-up"></i></h4>
+                </a>
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="inputCallSign" placeholder="CallSign"
-                                       ng-model="contestLog.callsign" ng-required/>
+                <div class="row" collapse="displayDetails">
+                    <form class="form-horizontal">
+                        <formset>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputCallSign">CallSign</label>
+
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="inputCallSign" placeholder="CallSign"
+                                           ng-model="contestLog.callsign" ng-required/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputName">Name</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputName">Name</label>
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="inputName" placeholder="Name"
-                                       ng-model="contestLog.name"
-                                       ng-required/>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="inputName" placeholder="Name"
+                                           ng-model="contestLog.name"
+                                           ng-required/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputEmail">Email</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputEmail">Email</label>
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="inputEmail" placeholder="Email"
-                                       ng-model="contestLog.emailAddress" ng-required/>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="inputEmail" placeholder="Email"
+                                           ng-model="contestLog.emailAddress" ng-required/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputAddress">Address</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputAddress">Address</label>
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="inputAddress" placeholder="Address"
-                                       ng-model="contestLog.address" ng-required/>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="Address"
+                                           ng-model="contestLog.address" ng-required/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputCity">City</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputCity">City</label>
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="inputCity" placeholder="City"
-                                       ng-model="contestLog.city"
-                                       ng-required/>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="inputCity" placeholder="City"
+                                           ng-model="contestLog.city"
+                                           ng-required/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputStateProvince">State/Province</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputStateProvince">State/Province</label>
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="inputStateProvince"
-                                       placeholder="State/Province"
-                                       ng-model="contestLog.stateProvince" ng-required/>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="inputStateProvince"
+                                           placeholder="State/Province"
+                                           ng-model="contestLog.stateProvince" ng-required/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputPostalCode">Postal Code</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputPostalCode">Postal Code</label>
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="inputPostalCode" placeholder="Postal Code"
-                                       ng-model="contestLog.postalCode" ng-required/>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="inputPostalCode"
+                                           placeholder="Postal Code"
+                                           ng-model="contestLog.postalCode" ng-required/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputCountry">Country</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputCountry">Country</label>
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="inputCountry" placeholder="Country"
-                                       ng-model="contestLog.country" ng-required/>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="inputCountry" placeholder="Country"
+                                           ng-model="contestLog.country" ng-required/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputLocation">Location</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputLocation">Location</label>
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="inputLocation" placeholder="Club Name"
-                                       ng-model="contestLog.location" ng-required/>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="inputLocation" placeholder="Club Name"
+                                           ng-model="contestLog.location" ng-required/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputClubName">Club Name</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputClubName">Club Name</label>
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="inputClubName" placeholder="Club Name"
-                                       ng-model="contestLog.club" ng-required/>
+                                <div class="col-md-5">
+                                    <input type="text" class="form-control" id="inputClubName" placeholder="Club Name"
+                                           ng-model="contestLog.club" ng-required/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputCategoryAssisted">Assisted</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputCategoryAssisted">Assisted</label>
 
-                            <div class="col-md-5">
-                                <select id="inputCategoryAssisted" class="form-control"
-                                        ng-model="contestLog.assistedStatus"
-                                        ng-options="currOption for currOption in categoryAssisted"/>
+                                <div class="col-md-5">
+                                    <select id="inputCategoryAssisted" class="form-control"
+                                            ng-model="contestLog.assistedStatus"
+                                            ng-options="currOption for currOption in categoryAssisted"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputCategoryBand">Band</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputCategoryBand">Band</label>
 
-                            <div class="col-md-5">
-                                <select id="inputCategoryBand" class="form-control" ng-model="contestLog.categoryBand"
-                                        ng-options="currOption for currOption in categoryBand"/>
+                                <div class="col-md-5">
+                                    <select id="inputCategoryBand" class="form-control"
+                                            ng-model="contestLog.categoryBand"
+                                            ng-options="currOption for currOption in categoryBand"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputCategoryMode">Mode</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputCategoryMode">Mode</label>
 
-                            <div class="col-md-5">
-                                <select id="inputCategoryMode" class="form-control" ng-model="contestLog.categoryMode"
-                                        ng-options="currOption for currOption in categoryMode"/>
+                                <div class="col-md-5">
+                                    <select id="inputCategoryMode" class="form-control"
+                                            ng-model="contestLog.categoryMode"
+                                            ng-options="currOption for currOption in categoryMode"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputCategoryOperator">Operator</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputCategoryOperator">Operator</label>
 
-                            <div class="col-md-5">
-                                <select id="inputCategoryOperator" class="form-control"
-                                        ng-model="contestLog.categoryOperator"
-                                        ng-options="currOption for currOption in categoryOperator"/>
+                                <div class="col-md-5">
+                                    <select id="inputCategoryOperator" class="form-control"
+                                            ng-model="contestLog.categoryOperator"
+                                            ng-options="currOption for currOption in categoryOperator"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputCategoryStation">Station Type</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputCategoryStation">Station Type</label>
 
-                            <div class="col-md-5">
-                                <select id="inputCategoryStation" class="form-control"
-                                        ng-model="contestLog.categoryStation"
-                                        ng-options="currOption for currOption in categoryStation"/>
+                                <div class="col-md-5">
+                                    <select id="inputCategoryStation" class="form-control"
+                                            ng-model="contestLog.categoryStation"
+                                            ng-options="currOption for currOption in categoryStation"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputCategoryTransmitter">Transmitter</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputCategoryTransmitter">Transmitter</label>
 
-                            <div class="col-md-5">
-                                <select id="inputCategoryTransmitter" class="form-control"
-                                        ng-model="contestLog.categoryTransmitter"
-                                        ng-options="currOption for currOption in categoryTransmitter"/>
+                                <div class="col-md-5">
+                                    <select id="inputCategoryTransmitter" class="form-control"
+                                            ng-model="contestLog.categoryTransmitter"
+                                            ng-options="currOption for currOption in categoryTransmitter"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="inputCategoryPower">Power</label>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="inputCategoryPower">Power</label>
 
-                            <div class="col-md-5">
-                                <select id="inputCategoryPower" class="form-control" ng-model="contestLog.categoryPower"
-                                        ng-options="currOption for currOption in categoryPower"/>
+                                <div class="col-md-5">
+                                    <select id="inputCategoryPower" class="form-control"
+                                            ng-model="contestLog.categoryPower"
+                                            ng-options="currOption for currOption in categoryPower"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-2">&nbsp;</div>
-                            <div class="col-md-5">
-                                <a class="btn btn-primary pull-right" ng-click="updateContestLog()"><i
-                                    class="fa fa-save"></i></a></div>
-                        </div>
-                    </formset>
-                </form>
-            </div>
-        </li>
-    </ul>
+                            <div class="form-group">
+                                <div class="col-md-7">
+                                    <a class="btn btn-primary pull-right" ng-click="updateContestLog()"><i
+                                        class="fa fa-save"></i></a>
+                                </div>
+                            </div>
+                        </formset>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
     <div>&nbsp;</div>
     <div>
         <button id="addQsoTop" class="btn btn-primary" ng-click="addContact()">Add QSO</button>
     </div>
     <div>&nbsp;</div>
-    <table class="table table-condensed">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>freq</th>
-            <th>mode</th>
-            <th>call sent</th>
-            <th>rst sent</th>
-            <th>exch sent</th>
-            <th>call rcvd</th>
-            <th>rst rcvd</th>
-            <th>exch rcvd</th>
-            <th>&nbsp;</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="qso in qsoData">
-            <td class="col-md-2">{{qso.index}} - {{qso.date}} {{qso.time}}</td>
-            <td><input type="number" class="form-control" id="inputFrequency" placeholder="Frequency"
-                       ng-model="qso.frequency" ng-required/></td>
-            <td><select id="inputCategoryMode" class="form-control" ng-model="qso.mode"
-                        ng-options="currOption for currOption in categoryMode"/></td>
-            <td><input type="text" class="form-control" id="inputCallSent" placeholder="Call Sent"
-                       ng-model="qso.callSent"
-                       ng-required/></td>
-            <td><input type="text" class="form-control" id="inputRSTSent" placeholder="RST Sent"
-                       ng-model="qso.rstSent" ng-required/></td>
-            <td><input type="text" class="form-control" id="inputExchSent" placeholder="Exch Sent"
-                       ng-model="qso.exchSent" ng-required/></td>
-            <td><input type="text" class="form-control" id="inputCallRcvd" placeholder="Call Rcvd"
-                       ng-model="qso.callRcvd"
-                       ng-required/></td>
-            <td><input type="text" class="form-control" id="inputRSTRcvd" placeholder="RST Rcvd"
-                       ng-model="qso.rstRcvd" ng-required/></td>
-            <td><input type="text" class="form-control" id="inputExchRcvd" placeholder="Exch Rcvd"
-                       ng-model="qso.exchRcvd" ng-required/></td>
-            <td><a class="btn btn-primary" ng-click="updateQsoRecord($index)"><i class="fa fa-save"></i></a><a
-                class="btn btn-primary" ng-click="deleteQsoRecord($index)"><i class="fa fa-trash-o"></i></a></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>freq</th>
+                <th>mode</th>
+                <th>call sent</th>
+                <th>rst sent</th>
+                <th>exch sent</th>
+                <th>call rcvd</th>
+                <th>rst rcvd</th>
+                <th>exch rcvd</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="qso in qsoData">
+                <td class="col-md-2">{{qso.index}} - {{qso.date}} {{qso.time}}</td>
+                <td><input type="text" class="form-control" id="inputFrequency" placeholder="Frequency"
+                           ng-model="qso.frequency" ng-required/></td>
+                <td><select id="inputCategoryMode" class="form-control" ng-model="qso.mode"
+                            ng-options="currOption for currOption in categoryMode"/></td>
+                <td><input type="text" class="form-control" id="inputCallSent" placeholder="Call Sent"
+                           ng-model="qso.callSent"
+                           ng-required/></td>
+                <td><input type="text" class="form-control" id="inputRSTSent" placeholder="RST Sent"
+                           ng-model="qso.rstSent" ng-required/></td>
+                <td><input type="text" class="form-control" id="inputExchSent" placeholder="Exch Sent"
+                           ng-model="qso.exchSent" ng-required/></td>
+                <td><input type="text" class="form-control" id="inputCallRcvd" placeholder="Call Rcvd"
+                           ng-model="qso.callRcvd"
+                           ng-required/></td>
+                <td><input type="text" class="form-control" id="inputRSTRcvd" placeholder="RST Rcvd"
+                           ng-model="qso.rstRcvd" ng-required/></td>
+                <td><input type="text" class="form-control" id="inputExchRcvd" placeholder="Exch Rcvd"
+                           ng-model="qso.exchRcvd" ng-required/></td>
+                <td><a class="btn btn-primary" ng-click="updateQsoRecord($index)"><i class="fa fa-save"></i></a><a
+                    class="btn btn-primary" ng-click="deleteQsoRecord($index)"><i class="fa fa-trash-o"></i></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     <div>&nbsp;</div>
     <div>
         <button id="addQsoBottom" class="btn btn-primary" ng-click="addContact()">Add QSO</button>
     </div>
-
 </div>
