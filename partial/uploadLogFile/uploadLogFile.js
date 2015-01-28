@@ -25,9 +25,9 @@ angular.module('noagendaqsoparty').controller('UploadlogfileCtrl',function($scop
 
         $scope.contestLog = new ContestLog();
         $scope.contestLog.contestant = $scope.contestant.id;
-        $scope.contestLog.callsign = $scope.contestant.UserName;
-        $scope.contestLog.name = $scope.contestant.FirstName + ' ' + $scope.contestant.LastName;
-        $scope.contestLog.emailAddress = $scope.contestant.Email;
+        $scope.contestLog.callsign = $scope.contestant.userName;
+        $scope.contestLog.name = $scope.contestant.firstName + ' ' + $scope.contestant.lastName;
+        $scope.contestLog.emailAddress = $scope.contestant.email;
         $scope.contestLog.contestName = 'noagendaqsoparty2015';
         $scope.contestLog.submitTime = moment.utc().format('YYYY-MM-DD hh:mm:ss');
         $scope.contestLog.operators = [];

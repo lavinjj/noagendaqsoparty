@@ -9,8 +9,8 @@ angular.module('noagendaqsoparty').controller('RegisterCtrl', function ($scope, 
 
     $scope.register = function () {
         $scope.contestant.userName = $scope.contestant.userName.toUpperCase();
-        $scope.contestant.DateJoined = new Date();
-        $scope.contestant.Password = sha.hash($scope.password + $scope.contestant.DateJoined.valueOf().toString());
+        $scope.contestant.dateJoined = new Date();
+        $scope.contestant.password = sha.hash($scope.password + $scope.contestant.dateJoined.valueOf().toString());
         $scope.publish(events.message._CREATE_CONTESTANT_, [$scope.contestant]);
     };
 

@@ -20,9 +20,9 @@ angular.module('noagendaqsoparty').factory('authenticate', function (localStorag
 
     var onGetContestantByUserNameComplete = function (contestants) {
         var contestant = contestants[0];
-        var passwordHash = sha.hash(currentPassword + Date.parse(contestant.DateJoined).valueOf().toString());
+        var passwordHash = sha.hash(currentPassword + Date.parse(contestant.dateJoined).valueOf().toString());
 
-        if (passwordHash !== contestant.Password) {
+        if (passwordHash !== contestant.password) {
             messaging.publish(events.message._ADD_ERROR_MESSAGE_, ['Invalid password', 'alert.warning']);
             return;
         }

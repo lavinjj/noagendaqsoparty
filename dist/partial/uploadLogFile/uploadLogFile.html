@@ -1,0 +1,4 @@
+<div class="col-md-12" ng-controller="UploadlogfileCtrl">
+    <div ng-file-reader on-readed="onRead( event, file )" read-method="readMethod"></div>
+    <div ng-bind-html="readStatus"></div>
+</div>

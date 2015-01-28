@@ -94,9 +94,9 @@ angular.module('noagendaqsoparty').controller('ContestlogCtrl', function ($scope
         if (user) {
             $scope.contestant = user;
             $scope.contestLog.contestant = $scope.contestant.id;
-            $scope.contestLog.callsign = $scope.contestant.UserName;
-            $scope.contestLog.name = $scope.contestant.FirstName + ' ' + $scope.contestant.LastName;
-            $scope.contestLog.emailAddress = $scope.contestant.Email;
+            $scope.contestLog.callsign = $scope.contestant.userName;
+            $scope.contestLog.name = $scope.contestant.firstName + ' ' + $scope.contestant.lastName;
+            $scope.contestLog.emailAddress = $scope.contestant.email;
         }
     };
     $scope.subscribe(events.message._CURRENT_USER_RESPONSE_, $scope.retrieveUserCompletedHandler);

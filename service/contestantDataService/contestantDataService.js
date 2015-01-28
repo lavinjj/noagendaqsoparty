@@ -2,7 +2,7 @@ angular.module('noagendaqsoparty').factory('contestantDataService', function (me
     var contestants = [];
 
     var getContestantByUserName = function (username) {
-        return mongolab.query(constants.db.dbName, constants.db.contestantCollection, {q: {UserName: username}})
+        return mongolab.query(constants.db.dbName, constants.db.contestantCollection, {q: {userName: username}})
             .then(getContestantByUserNameSuccessHandler, getContestantByUserNameErrorHandler);
     };
 
@@ -25,7 +25,7 @@ angular.module('noagendaqsoparty').factory('contestantDataService', function (me
     messaging.subscribe(events.message._GET_CONTESTANT_BY_USERNAME_, getContestantByUserName);
 
     var getContestantByEmail = function (email) {
-        mongolab.query(constants.db.dbName, constants.db.contestantCollection, {q: {Email: email}})
+        mongolab.query(constants.db.dbName, constants.db.contestantCollection, {q: {email: email}})
             .then(getContestantByEmailSuccessHandler, getContestantByEmailErrorHandler);
     };
 
